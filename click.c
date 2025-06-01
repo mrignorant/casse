@@ -28,6 +28,7 @@ double casse;
 int main () {
 
 	initscr();
+	curs_set(0);   //0 hide the blinking cursor
 	if (has_colors() == FALSE) {
                 endwin();
    	 	printf("Your terminal does not support color\n");
@@ -43,6 +44,7 @@ int main () {
 	init_pair(2,8 ,0);    //  94 brown like 
 	init_pair(3,37, 0);   //  137 brow ,  
 	init_pair(4, 137, 0);   // 37 light blue 
+	init_pair(5, 94, 0);   // 37 light blue 
 
 
 	attron(COLOR_PAIR(3));
@@ -70,18 +72,19 @@ int main () {
 
 
 		attron(COLOR_PAIR(1));         // Enable color pair 1	
-		mvprintw(11,2,"produced bottles : %i",pr_bottles);
-		mvprintw(12,2,"rejected bottles : %i",int_rb);
-		mvprintw(13,2,"other rb         : %i",int_orb);
-		mvprintw(14,2,"rejected preforms: %i",int_rp);
+		mvprintw(12,2,"produced bottles : %i",pr_bottles);
+		mvprintw(13,2,"rejected bottles : %i",int_rb);
+		mvprintw(14,2,"other rb         : %i",int_orb);
+		mvprintw(15,2,"rejected preforms: %i",int_rp);
 		bl_counter = pr_bottles + int_rb + int_orb + int_rp;
-		mvprintw(15,2,"blower counter   : %i",bl_counter);
+		mvprintw(16,2,"blower counter   : %i",bl_counter);
 		casse = ( ( (double)int_rb + int_orb + int_rp ) / pr_bottles) * 100;
-		mvprintw(16,2,"casse            : %.2f %% ",casse);
+		mvprintw(17,2,"casse            : %.2f %% ",casse);
 		attroff(COLOR_PAIR(1));        // Disable color pair 1
 
 		char ch = getch();
 		noecho();
+		curs_set(1);  // 1 show the blinking cursor
 		attron(COLOR_PAIR(4));
 		mode(&ch);
 		pb(&ch);
@@ -89,9 +92,10 @@ int main () {
 		preforms(&ch);
 		otherrb(&ch);
 		attroff(COLOR_PAIR(4));
+		curs_set(0);
 
 
-		for(int j=9; j<10; j++){
+		for(int j=9; j<20; j++){
 			for(int i=0; i<100;i++){
 				mvprintw(j,i," ");
 			}
@@ -127,8 +131,9 @@ void *pb (char *ch){
 		for(int i=0; i<100;i++){
 			mvprintw(9,i," ");
 		}
-		mvprintw(9,7,"produced bottles (%i):    ",pr_bottles - pr_bottles);
-		move(9,29);
+		mvprintw(9,5,"produced bottles(%i):    ",pr_bottles - pr_bottles);
+		mvprintw(10,9,"//");
+		move(10,12);
 		echo();
 		getstr(produced_bottles);
 		pr_bottles = atoi(produced_bottles);
@@ -142,8 +147,9 @@ void *bottles (char *ch){
 		for(int i=0; i<100;i++){
 			mvprintw(9,i," ");
 		}
-		mvprintw(9,7,"rejected bottles (%i):    ",int_rb - int_rb);
-		move(9,29);
+		mvprintw(9,5,"rejected bottles(%i):    ",int_rb - int_rb);
+		mvprintw(10,9,"//");
+		move(10,12);
 		echo();
 		getstr(rb);
 		int_rb = atoi(rb);                                                                                               
@@ -160,8 +166,9 @@ void *otherrb (char *ch){
 		for(int i=0; i<100;i++){
 			mvprintw(9,i," ");
 		}
-		mvprintw(9,7,"other rb (%i):    ",int_orb);
-		move(9,27);
+		mvprintw(9,5,"other rb(%i):    ",int_orb);
+		mvprintw(10,9,"//");
+		move(10,12);
 		echo();
 		getstr(other_rb);
 		int_orb = atoi(other_rb);
@@ -177,8 +184,9 @@ void *preforms (char *ch){
 		for(int i=0; i<100;i++){
 			mvprintw(9,i," ");
 		}
-		mvprintw(9,7,"rejected preforms (%i):    ",int_rp);
-		move(9,29);
+		mvprintw(9,5,"rejected preforms(%i):    ",int_rp);
+		mvprintw(10,9,"//");
+		move(10,12);
 		echo();
 		getstr(rp);
 		int_rp = atoi(rp);
