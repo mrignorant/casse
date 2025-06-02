@@ -90,12 +90,13 @@ int main () {
 		attron(COLOR_PAIR(3));
 
 		mvprintw(0,1," _____________________________________________________");
-		mvprintw(1,1,"/ bbbbbb ll    oooooo ww             ww eeeeee rrrrrr /");
-		mvprintw(2,1,"/ bb  bb ll    oo  oo  ww           ww  ee     rr  rr /");
-		mvprintw(3,1,"/ bbbbbb ll    oo  oo   ww   ww    ww   eeeeee rrrrrr /");
-		mvprintw(4,1,"/ bb  bb ll    oo  oo    ww ww ww ww    ee     rr rr  /");
-		mvprintw(5,1,"/ bbbbbb lllll oooooo     ww    ww      eeeeee rr  rr /");
-		mvprintw(6,1,"/_____________________________________________________/");
+		mvprintw(1,0,"_/ bbbbbb ll    oooooo ww             ww eeeeee rrrrrr /");
+		mvprintw(2,0,"e/ bb  bb ll    oo  oo  ww           ww  ee     rr  rr /");
+		mvprintw(3,0,"_/ bbbbbb ll    oo  oo   ww   ww    ww   eeeeee rrrrrr /");
+		mvprintw(4,0,"e/ bb  bb ll    oo  oo    ww ww ww ww    ee     rr rr  /");
+		mvprintw(5,0,"_/ bbbbbb lllll oooooo     ww    ww      eeeeee rr  rr /");
+		mvprintw(6,0,"e/_____________________________________________________/");
+		mvprintw(7,0,"___________/___/");
 
 		attroff(COLOR_PAIR(3));
 
@@ -138,13 +139,14 @@ int main () {
 			attroff(COLOR_PAIR(3));
 			clear();
 			attron(COLOR_PAIR(3));
-			mvprintw(0,1," _____________________________________");
-			mvprintw(1,1,"/ fffff iii ll    ll    eeeee rrrrrr / ");
-			mvprintw(2,1,"/ ff    iii ll    ll    ee    rr  rr /");
-			mvprintw(3,1,"/ fffff iii ll    ll    eeeee rrrrrr /");
-			mvprintw(4,1,"/ ff    iii ll    ll    ee    rr rr  /");
-			mvprintw(5,1,"/ ff    iii lllll lllll eeeee rr  rr /");
-			mvprintw(6,1,"/____________________________________/");
+			mvprintw(0,0," _____________________________________");
+			mvprintw(1,0,"e/ fffff iii ll    ll    eeeee rrrrrr / ");
+			mvprintw(2,0,"_/ ff    iii ll    ll    ee    rr  rr /");
+			mvprintw(3,0,"e/ fffff iii ll    ll    eeeee rrrrrr /");
+			mvprintw(4,0,"_/ ff    iii ll    ll    ee    rr rr  /");
+			mvprintw(5,0,"e/ ff    iii lllll lllll eeeee rr  rr /");
+			mvprintw(6,0,"_/____________________________________/");
+			mvprintw(7,0,"___________/___/");
 
 			
 			attroff(COLOR_PAIR(3));
